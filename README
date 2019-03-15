@@ -1,7 +1,7 @@
-account_invoice_send_mail
+reports_commission
 =========================
 
-The account_invoice_send_mail module of the Tryton application platform.
+The reports_commission module of the Tryton application platform.
 
 Installing
 ----------
@@ -14,7 +14,7 @@ Support
 For more information or if you encounter any problems with this module,
 please contact the programmers at
 
-https://github.com/gcoop-libre/trytond-account_invoice_send_mail/issues
+https://github.com/gcoop-libre/trytond-reports_commission/issues
 
 If you encounter any problems with Tryton, please don't hesitate to ask
 questions on the Tryton bug tracker, mailing list, wiki or IRC channel:

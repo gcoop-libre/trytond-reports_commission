@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+
+        <record model="ir.ui.view" id="commission_report_start_view_form">
+            <field name="model">reports.commission.start</field>
+            <field name="type">form</field>
+            <field name="name">commission_report_start_form</field>
+        </record>
+
+        <record model="ir.action.wizard" id="wizard_reports_commission">
+            <field name="name">Commissions</field>
+            <field name="wiz_name">reports.commission</field>
+        </record>
+
+        <record model="ir.action.report" id="act_reports_commission">
+            <field name="name">Commissions</field>
+            <field name="report_name">reports.commission</field>
+            <field name="report">reports_commission/commissions.ods</field>
+        </record>
+
+        <menuitem parent="commission.menu_commission" sequence="99"
+            id="menu_reports_commission" action="wizard_reports_commission"/>
+        <record model="ir.ui.menu-res.group"
+            id="menu_reports_commission_group_commission_admin">
+            <field name="menu" ref="menu_reports_commission"/>
+            <field name="group" ref="commission.group_commission_admin"/>
+        </record>
+    </data>
+</tryton>

@@ -53,7 +53,10 @@ class CommissionReport(Report):
         pool = Pool()
         Agent = pool.get('commission.agent')
         _ZERO = Decimal('0')
-        agents = Agent.search([])
+        domain = []
+        if 'agents' in data:
+            domain.append(('id', 'in', data['agents']))
+        agents = Agent.search(domain, order=[('party.name', 'ASC')])
 
         records = []
         for agent in agents:
@@ -90,6 +93,7 @@ class CommissionReportStart(ModelView):
 
     from_date = fields.Date('From Date', required=True)
     to_date = fields.Date('To Date', required=True)
+    agents = fields.Many2Many('commission.agent', None, None, 'Agents')
 
     @staticmethod
     def default_from_date():
@@ -117,4 +121,8 @@ class CommissionReportWiz(Wizard):
             'from_date': self.start.from_date,
             'to_date': self.start.to_date,
             }
+        if self.start.agents:
+            data.update({
+            'agents': [p.id for p in self.start.agents],
+            })
         return action, data

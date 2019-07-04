@@ -6,4 +6,5 @@ this repository contains the full copyright notices and license terms. -->
     <field name="from_date"/>
     <label name="to_date"/>
     <field name="to_date"/>
+    <field name="agents" colspan="4"/>
 </form>
